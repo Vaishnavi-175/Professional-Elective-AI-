@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Medical Diagnosis System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="card fade-in">
+      <h1>🩺 AI Medical Diagnosis</h1>
+      <p class="subtitle">Enter your symptoms separated by commas</p>
+      <form action="/result" method="POST">
+        <input type="text" name="symptoms" placeholder="e.g. fever, cough, fatigue" required>
+        <button type="submit">🔍 Diagnose</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Diagnosis Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="card fade-in">
+      <h1>🧠 Diagnosis Results</h1>
+      <p class="subtitle">Symptoms: <strong>{{ user_input }}</strong></p>
+      
+      {% if diagnosis %}
+        <div class="results">
+          <h2>Possible Conditions:</h2>
+          <ul>
+            {% for disease, score in diagnosis %}
+              <li><span>{{ disease }}</span> <strong>{{ score }}%</strong></li>
+            {% endfor %}
+          </ul>
+          <div class="highlight">
+            Most Likely: <strong>{{ diagnosis[0][0] }}</strong> ({{ diagnosis[0][1] }}%)
+          </div>
+        </div>
+      {% else %}
+        <p>No matching condition found. Please consult a doctor.</p>
+      {% endif %}
+      
+      <a href="/" class="back-btn">🔙 Go Back</a>
+    </div>
+  </div>
+</body>
+</html>
